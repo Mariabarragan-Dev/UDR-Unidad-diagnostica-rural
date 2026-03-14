@@ -17,6 +17,8 @@
     --font-family1: Roboto;
 }
 
+/* Header */
+/*Inicio*/
 header {
     position: sticky;
     top: 0;
@@ -31,7 +33,6 @@ header::after {
 
 }
 
-/* Franja superior azul con redes y teléfono */
 .header-top {
     background: linear-gradient(to right, var(--azul-oscuro), var(--azul-principal), var(--azul-claro));
     display: flex;
@@ -46,7 +47,6 @@ header::after {
     filter: brightness(0) invert(1);
 }
 
-/* Franja blanca con logo y nav */
 .header-medio {
     background-color: var(--blanco);
     display: flex;
@@ -79,7 +79,9 @@ header::after {
     font-family: var(--font-family);
 }
 
-/* Navegación */
+/*end header*/
+
+/* Nav*/
 nav ul {
     list-style: none;
     display: flex;
@@ -100,6 +102,8 @@ nav ul li a:hover {
 
 }
 
+/*end nav */
+/*Hero*/
 .hero {
     width: 100%;
     height: 60vh;
@@ -153,9 +157,41 @@ nav ul li a:hover {
 
 }
 
+/* Ventajas */
+.ventajas {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--azul-claro);
+    padding: 2rem 4rem;
+    gap: 2rem;
+}
+
+.ventaja {
+    text-align: center;
+    flex: 1;
+    position: relative;
+    padding: 1rem;
+}
+
+.ventaja::before {
+    content: '◆';
+    display: block;
+    color: var(--azul-principal);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.ventaja p {
+    font-family: var(--font-family);
+    color: var(--azul-oscuro);
+    font-size: 1rem;
+}
+
+/*primera sección*/
 .problema {
     margin-top: 10%;
-    
+
 }
 
 .secciones h3 {
@@ -173,9 +209,7 @@ nav ul li a:hover {
 }
 
 .secciones {
-   /* width: 30%;
-    margin-left: auto;
-    margin-right: auto;*/
+
     display: flex;
     align-items: center;
     gap: 3rem;
@@ -189,30 +223,39 @@ nav ul li a:hover {
     max-height: 400px;
     object-fit: cover;
 }
+
 .secciones-imagen {
     flex: 1;
 }
+
+.seccion-texto {
+    flex: 1;
+}
+
+/*Segunda sección*/
+
 .funcionamiento {
     margin-top: 10%;
-    
-  
+
+
 }
+
 .funcionamiento h3 {
     text-align: center;
     font-family: var(--font-family);
     color: var(--azul-principal);
     font-size: 2rem;
 }
+
 .funciones {
-    /*width: 30%;
-    margin-left: auto;
-    margin-right: auto;*/
+
     display: flex;
     align-items: center;
     gap: 3rem;
     padding: 4rem 2rem;
 
 }
+
 .funciones-texto {
     flex: 1;
 }
@@ -227,23 +270,28 @@ nav ul li a:hover {
 .funciones-imagen {
     flex: 1;
 }
+
 .funcion {
     font-family: var(--font-family1);
     color: var(--gris-texto);
     margin-top: 30px;
 }
+
+/* Tercera sección */
 .contacta {
     margin-top: 10%;
     text-align: center;
     background-color: var(--azul-claro);
     padding: 1rem 2rem 3rem 1rem;
 }
-.contacta h3{
+
+.contacta h3 {
     margin-bottom: 1rem;
     color: var(--azul-principal);
     font-family: var(--font-family);
     font-size: 2rem;
 }
+
 .contacta p {
 
     margin-top: 50px;
@@ -269,6 +317,8 @@ nav ul li a:hover {
     background-color: var(--azul-oscuro);
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
 }
+
+/* Footer */
 footer {
     background-color: var(--gris-claro);
     padding: 1.5rem 2rem;
@@ -342,3 +392,215 @@ footer {
     color: var(--gris-texto);
 }
 
+/* Fin footer*/
+/*Servicios tipos*/
+.exploraciones {
+    margin-top: 5%;
+    padding: 2rem 4rem;
+}
+
+.tipos-general {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.tipos-general h2 {
+    font-family: var(--font-family);
+    font-size: 2rem;
+    color: var(--azul-principal);
+}
+
+.tipos-general p {
+    font-family: var(--font-family1);
+    color: var(--gris-texto);
+    margin-top: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tipos-todos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.tipos {
+    background-color: var(--azul-claro);
+    border-radius: 12px;
+    padding: 2rem;
+    border-left: 4px solid var(--azul-principal);
+}
+
+.tipos h3 {
+    margin-bottom: 1rem;
+    font-family: var(--font-family);
+    color: var(--gris-texto);
+    font-size: 1.3rem;
+}
+
+.tipos ul {
+
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.tipos li {
+    margin-top: 8px;
+    font-family: var(--font-family1);
+    color: var(--gris-texto);
+    line-height: 1.5;
+}
+/* servicios proceso*/
+.proceso-asistencial {
+    margin-top: 5%;
+    padding: 2rem 4rem;
+    position: relative;
+}
+
+.proceso-explicacion {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.proceso-explicacion h2 {
+    font-family: var(--font-family);
+    font-size: 2rem;
+    color: var(--azul-principal);
+}
+
+.proceso-explicacion p {
+    font-family: var(--font-family1);
+    color: var(--gris-texto);
+    margin-top: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.proceso-asistencial::before {
+    content: '';
+    position: absolute;
+    left: 5rem;
+    top: 180px;
+    bottom: 2rem;
+    width: 3px;
+    background-color: var(--azul-principal);
+}
+
+.pasos {
+    position: relative;
+    padding: 1.5rem 0 1.5rem 3rem;
+}
+
+.pasos::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 1.8rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--azul-principal);
+    border: 3px solid var(--blanco);
+}
+
+.pasos h3 {
+    font-family: var(--font-family);
+    color: var(--azul-principal);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.pasos p {
+    font-family: var(--font-family1);
+    color: var(--gris-texto);
+    line-height: 1.6;
+}
+/* servicios tecnologia*/
+.tecnologia {
+    margin-top: 5%;
+    padding: 2rem 4rem;
+}
+
+.tecnologia h2 {
+    font-family: var(--font-family);
+    font-size: 2rem;
+    color: var(--azul-principal);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.tecnologia-contenido {
+    display: flex;
+    gap: 3rem;
+    align-items: stretch;
+}
+
+.equipo {
+    flex: 1;
+    background-color: var(--azul-claro);
+    border-radius: 12px;
+    border-left: 4px solid var(--azul-principal);
+    padding: 2rem;
+}
+
+.equipo h3 {
+    font-family: var(--font-family);
+    color: var(--azul-principal);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.equipo p {
+    font-family: var(--font-family1);
+    color: var(--gris-texto);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.equipo ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.equipo li {
+    font-family: var(--font-family1);
+    color: var(--gris-texto);
+    margin-top: 8px;
+    line-height: 1.6;
+}
+
+.unidad-movil {
+    flex: 1;
+    background-color: var(--azul-claro);
+    border-radius: 12px;
+    border-left: 4px solid var(--azul-principal);
+    padding: 2rem;
+}
+
+.unidad-movil h3 {
+    font-family: var(--font-family);
+    color: var(--azul-principal);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.unidad-movil p {
+    font-family: var(--font-family1);
+    color: var(--gris-texto);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.unidad-movil ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+
+.unidad-movil li {
+    font-family: var(--font-family1);
+    color: var(--gris-texto);
+    margin-top: 8px;
+    line-height: 1.6;
+}

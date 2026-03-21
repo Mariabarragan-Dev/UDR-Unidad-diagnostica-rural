@@ -10,32 +10,40 @@ Más de 8.000 municipios españoles, la mayoría con menos de 5.000 habitantes, 
 - HTML5
 - CSS3 (Flexbox, Grid, variables CSS, media queries)
 - Google Fonts (Bree Serif, Roboto)
+- Java (próximamente)
+- MySQL (próximamente)
+
+## Módulos del proyecto
+- /bases_de_datos — Bases de Datos 
+- /lenguajes_marcas — Lenguajes de Marcas 
+- /programacion — Programación  y MPO
+- /sistemas — Sistemas Informáticos 
 
 ## Instrucciones de ejecución
 1. Clona o descarga el repositorio
-2. Abre el archivo `index.html` con cualquier navegador web
+2. Abre el archivo `lenguajes_marcas/index.html` con cualquier navegador web
 3. Navega por las páginas desde el menú de navegación
 No requiere instalación ni servidor.
 
 ## Estructura del repositorio
 ```
-UDR-Unidad-diagnostica-rural/
-├── index.html
-├── Servicios.html
-├── SobreUDR.html
-├── Contacto.html
-├── style.css
-├── img/
-│   ├── Logo.webp
-│   ├── instagram.webp
-│   ├── facebook.webp
-│   ├── social.webp
-│   ├── telephone.webp
-│   ├── Bus-rural.webp
-│   ├── RM-bus.webp
-│   └── Paisaje-rural.webp
-├── video/
-│   └── video-principal.webm
+UDR-Diagnostica-Rural/
+├── bases_de_datos/
+│   └── diagramas/
+│       ├── Diagrama_UDR.drawio
+│       ├── Diagrama_UDR.png
+│       ├── Diagrama_UDR_relacional.drawio
+│       └── Diagrama_UDR_relacional.png
+├── lenguajes_marcas/
+│   ├── index.html
+│   ├── Servicios.html
+│   ├── SobreUDR.html
+│   ├── Contacto.html
+│   ├── style.css
+│   ├── img/
+│   └── video/
+├── programacion/
+├── sistemas/
 └── README.md
 ```
 

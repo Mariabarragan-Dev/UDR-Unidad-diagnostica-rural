@@ -35,6 +35,14 @@ id_unidadMovil int AUTO_INCREMENT PRIMARY KEY,
     modelo VARCHAR(50) not null   
 ); 
 
+CREATE TABLE tipoPrueba (
+id_tipoPrueba  int AUTO_INCREMENT PRIMARY KEY,
+    zona VARCHAR(50) NOT null,
+    categoria VARCHAR(50) not null,
+    duracion VARCHAR(30) null,
+    preparacion VARCHAR(100)
+);
+
 CREATE TABLE citas (
 id_citas int AUTO_INCREMENT PRIMARY KEY,
     hora time NOT null,
@@ -76,7 +84,7 @@ id_informe int AUTO_INCREMENT PRIMARY KEY,
 CREATE TABLE ruta (
     id_municipio INT NOT NULL,
     id_unidadMovil INT NOT NULL,
-    
+
     fecha DATE NOT NULL,
 
     PRIMARY KEY (id_municipio, id_unidadMovil),

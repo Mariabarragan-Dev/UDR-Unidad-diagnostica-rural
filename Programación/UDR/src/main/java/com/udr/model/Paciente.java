@@ -10,7 +10,7 @@ public class Paciente {
     private int idMunicipio;
 
     public Paciente(){}
-    public Paciente(int idMunicipio, String telefono, String fechaNacimiento, String dni, String apellidos, String nombre, int idPaciente) {
+    public Paciente(int idPaciente, String nombre, String apellidos, String dni, String fechaNacimiento, String telefono, int idMunicipio) {
         this.idMunicipio = idMunicipio;
         this.telefono = telefono;
         this.fechaNacimiento = fechaNacimiento;

@@ -20,14 +20,14 @@ public class CitasDAO {
             while (resultado.next()) {
                 Citas c = new Citas(
                         resultado.getInt("id_cita"),
+                        resultado.getString("hora"),
                         resultado.getString("estado"),
                         resultado.getString("fecha"),
-                        resultado.getString("hora"),
+                        resultado.getInt("id_paciente"),
                         resultado.getInt("id_especialista"),
                         resultado.getInt("id_municipio"),
                         resultado.getInt("id_tipoPrueba"),
-                        resultado.getInt("id_unidadMovil"),
-                        resultado.getInt("id_pacientes")
+                        resultado.getInt("id_unidadMovil")
                 );
                 lista.add(c);
             }
@@ -46,15 +46,15 @@ public class CitasDAO {
 
             while (resultado.next()) {
                 Citas c = new Citas(
-                        resultado.getInt("id_citas"),
+                        resultado.getInt("id_cita"),
+                        resultado.getString("hora"),
                         resultado.getString("estado"),
                         resultado.getString("fecha"),
-                        resultado.getString("hora"),
+                        resultado.getInt("id_paciente"),
                         resultado.getInt("id_especialista"),
                         resultado.getInt("id_municipio"),
                         resultado.getInt("id_tipoPrueba"),
-                        resultado.getInt("id_unidadMovil"),
-                        resultado.getInt("id_pacientes")
+                        resultado.getInt("id_unidadMovil")
                 );
                 lista.add(c);
             }
@@ -94,6 +94,40 @@ public class CitasDAO {
 
         } catch (SQLException e) {
             System.out.println("Error al cancelar la cita: " + e.getMessage());
+            return false;
+        }
+    }
+    public boolean crearCitaResonancia(int idPaciente, int idMunicipio, String fecha, String hora) {
+
+        // Comprobar que el paciente existe
+        PacienteDAO pacienteDAO = new PacienteDAO();
+        if (pacienteDAO.listarTodos().isEmpty()) {
+            System.out.println("No hay pacientes registrados.");
+            return false;
+        }
+
+        // Comprobar que hay unidades activas
+        UnidadMovilDAO unidadDAO = new UnidadMovilDAO();
+        if (unidadDAO.listarActivas().isEmpty()) {
+            System.out.println("No hay unidades moviles activas.");
+            return false;
+        }
+
+        // Si  todo está bien, insertar la cita
+        String sql = "INSERT INTO citas (hora, estado, fecha, id_pacientes, id_tipoPrueba, id_especialista, id_unidadMovil, id_municipio) " +
+                "VALUES (?, 'pendiente', ?, ?, 1, 1, ?, ?)";
+
+        try (PreparedStatement consulta = con.prepareStatement(sql)) {
+            consulta.setString(1, hora);
+            consulta.setString(2, fecha);
+            consulta.setInt(3, idPaciente);
+            consulta.setInt(4, unidadDAO.listarActivas().get(0).getIdUnidadMovil());
+            consulta.setInt(5, idMunicipio);
+
+            return consulta.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            System.out.println("Error al crear la cita: " + e.getMessage());
             return false;
         }
     }

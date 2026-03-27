@@ -6,7 +6,7 @@ import com.udr.model.Paciente;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+//DAO es Data Access Object
 public class PacienteDAO {
 
     private Connection con = Conexion.getConexion();

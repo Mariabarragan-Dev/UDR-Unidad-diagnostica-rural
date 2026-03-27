@@ -102,7 +102,7 @@ public class PacienteController {
     private void eliminar(){
        System.out.print("Escribe el DNI del paciente que se quiere eliminar: ");
        String dni = teclado.nextLine();
-       
+
        if (gestorPacientes.eliminar(dni)){
            System.out.print("Paciente eliminado");
 

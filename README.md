@@ -40,7 +40,7 @@ No requiere instalación ni servidor.
 
 ## Estructura del repositorio
 
-
+```text
 UDR-Diagnostica-Rural/
 ├── bases_de_datos/
 │   ├── diagramas/
@@ -56,17 +56,19 @@ UDR-Diagnostica-Rural/
 │   ├── index.html
 │   ├── Servicios.html
 │   ├── SobreUDR.html
+│   ├── Cobertura.html
 │   ├── Contacto.html
 │   ├── style.css
-│   ├── img/
-│   └── video/
+│   ├── Imágenes/
+│   └── Videos/
 ├── programacion/
 ├── sistemas/
 └── README.md
-
+```
 
 ## Páginas
 - **Inicio** — Presentación del servicio, ventajas, cómo funciona y llamada a la acción
 - **Servicios** — Tipos de estudios, proceso asistencial y tecnología y equipamiento
 - **Sobre UDR** — Historia de la empresa, el problema que resuelve y misión y valores
 - **Contacto** — Formulario de contacto para solicitar información
+- **Cobertura** — Buscador de municipios cubiertos por comunidad autónoma

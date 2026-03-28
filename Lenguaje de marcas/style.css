@@ -7,6 +7,9 @@
 html,
 body {
     overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column
 }
 
 :root {
@@ -20,6 +23,9 @@ body {
     --gris-claro: #f5f5f5;
     --font-family: Bree Serif;
     --font-family1: Roboto;
+}
+main {
+    flex: 1;
 }
 
 /* Header */
@@ -747,7 +753,122 @@ footer {
     line-height: 1.6;
     margin-bottom: 2rem;
 }
+/*Cobertura*/
+.lugares {
+    margin-top: 5%;
+    padding: 2rem 4rem;
+}
 
+.lugares h2 {
+    font-family: var(--font-family);
+    font-size: 2rem;
+    color: var(--azul-principal);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.lugares p {
+    font-family: var(--font-family1);
+    color: var(--gris-texto);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.cobertura-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+    align-items: start;
+}
+
+details {
+   background-color: var(--azul-oscuro);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: var(--font-family);
+    color: var(--azul-principal);
+    font-size: 1.1rem;
+    cursor: pointer;
+    list-style: none;
+    text-align: center;
+    color: var(--blanco);
+}
+
+summary img {
+     height: 50px;
+    width: auto;
+    border-radius: 3px;
+}
+
+details ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+details li {
+    font-family: var(--font-family1);
+    color: var(--blanco);
+    margin-top: 6px;
+    line-height: 1.5;
+}
+.cifras-cobertura {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--azul-claro);
+    border-radius: 12px;
+}
+
+.cifra {
+    text-align: center;
+}
+
+.numero {
+    display: block;
+    font-family: var(--font-family);
+    font-size: 3rem;
+    color: var(--azul-principal);
+    font-weight: bold;
+}
+
+.cifra p {
+    font-family: var(--font-family1);
+    color: var(--gris-texto);
+    margin-top: 0.5rem;
+}
+
+.contacta-cobertura {
+    margin-top: 3rem;
+    text-align: center;
+    background-color: var(--azul-oscuro);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.contacta-cobertura h3 {
+    font-family: var(--font-family);
+    color: var(--blanco);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.contacta-cobertura p {
+    font-family: var(--font-family1);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+/*Cobertura*/
 /* Contacto*/
 /* Formulario*/
 .contacto {

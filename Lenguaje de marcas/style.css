@@ -1105,6 +1105,16 @@ button:hover {
     .img-resolver {
         width: 100%;
     }
+    .cobertura-tarjetas {
+        grid-template-columns: 1fr;
+    }
+    summary {
+        font-size: 0.95rem;
+    }
+    
+    summary img {
+        height: 40px;
+    }
 
     .contacto {
         padding: 1.5rem;

@@ -48,7 +48,7 @@ public class UnidadMovil {
     }
     @Override
     public String toString (){
-        return "ID: " +idUnidadMovil +  "Estado: " +estado +  "Matrícula: " +matricula +
-                "Modelo: " +modelo;
+        return "ID: " + idUnidadMovil +  "Estado: " + estado +  "Matrícula: " + matricula +
+                "Modelo: " + modelo;
     }
 }

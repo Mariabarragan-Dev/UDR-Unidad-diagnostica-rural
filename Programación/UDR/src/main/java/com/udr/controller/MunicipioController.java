@@ -12,7 +12,8 @@ public class MunicipioController {
     private MunicipioDAO gestorMunicipio = new MunicipioDAO();
     private Scanner teclado;
 
-    public MunicipioController (Scanner teclado){
+
+      public MunicipioController (Scanner teclado){
         this.teclado = teclado;
     }
     public void mostrar() {

@@ -12,8 +12,10 @@ public class CitasController {
     private Scanner teclado;
 
     public CitasController(Scanner teclado) {
+
         this.teclado = teclado;
     }
+
 
     public void mostrar() {
         int opcion;

@@ -19,11 +19,11 @@ public class CitasDAO {
              ResultSet resultado = consulta.executeQuery(sql)){
             while (resultado.next()) {
                 Citas c = new Citas(
-                        resultado.getInt("id_cita"),
+                        resultado.getInt("id_citas"),
                         resultado.getString("hora"),
                         resultado.getString("estado"),
                         resultado.getString("fecha"),
-                        resultado.getInt("id_paciente"),
+                        resultado.getInt("id_pacientes"),
                         resultado.getInt("id_especialista"),
                         resultado.getInt("id_municipio"),
                         resultado.getInt("id_tipoPrueba"),
@@ -46,11 +46,11 @@ public class CitasDAO {
 
             while (resultado.next()) {
                 Citas c = new Citas(
-                        resultado.getInt("id_cita"),
+                        resultado.getInt("id_citas"),
                         resultado.getString("hora"),
                         resultado.getString("estado"),
                         resultado.getString("fecha"),
-                        resultado.getInt("id_paciente"),
+                        resultado.getInt("id_pacientes"),
                         resultado.getInt("id_especialista"),
                         resultado.getInt("id_municipio"),
                         resultado.getInt("id_tipoPrueba"),
@@ -99,21 +99,21 @@ public class CitasDAO {
     }
     public boolean crearCitaResonancia(int idPaciente, int idMunicipio, String fecha, String hora) {
 
-        // Comprobar que el paciente existe
+
         PacienteDAO pacienteDAO = new PacienteDAO();
         if (pacienteDAO.listarTodos().isEmpty()) {
             System.out.println("No hay pacientes registrados.");
             return false;
         }
 
-        // Comprobar que hay unidades activas
+
         UnidadMovilDAO unidadDAO = new UnidadMovilDAO();
         if (unidadDAO.listarActivas().isEmpty()) {
             System.out.println("No hay unidades moviles activas.");
             return false;
         }
 
-        // Si  todo está bien, insertar la cita
+
         String sql = "INSERT INTO citas (hora, estado, fecha, id_pacientes, id_tipoPrueba, id_especialista, id_unidadMovil, id_municipio) " +
                 "VALUES (?, 'pendiente', ?, ?, 1, 1, ?, ?)";
 

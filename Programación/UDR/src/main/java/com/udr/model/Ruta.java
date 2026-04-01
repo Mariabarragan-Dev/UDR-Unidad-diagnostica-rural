@@ -38,7 +38,7 @@ public class Ruta {
     }
     @Override
     public String toString(){
-        return "IDMunicipio: " + idMunicipio +  "IDUnidadMovil: " +idUnidadMovil + "Fecha: " +fecha;
+        return "IDMunicipio: " + idMunicipio +  "IDUnidadMovil: " + idUnidadMovil + "Fecha: " + fecha;
 
     }
 }

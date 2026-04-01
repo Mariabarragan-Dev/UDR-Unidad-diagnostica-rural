@@ -68,7 +68,7 @@ public class Informe {
     }
     @Override
     public String toString() {
-        return "ID: " + idInforme +  "Fecha" + fecha +
+        return "ID: " + idInforme +  "Fecha: " + fecha +
                 "   Resultado: " + resultado + "   IDEspecialista: " + idEspecialista +
                 "   IDCitas: " + idCitas +
                 "   IDPacientes: " + idPacientes;

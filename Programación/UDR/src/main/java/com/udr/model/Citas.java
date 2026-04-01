@@ -100,7 +100,7 @@ public class Citas {
 
     @Override
     public String toString() {
-        return "ID: " + idCitas + "   Estado: " + estado +  "Fecha" + fecha +
+        return "ID: " + idCitas + "   Estado: " + estado +  "Fecha: " + fecha +
                 "   Hora: " + hora + "   IDEspecialista: " + idEspecialista +
                 "   IDMunicipio: " + idMunicipio + "   IDTipoPrueba: " + idtipoPrueba +
                 "   IDUnidadMovil: " + idUnidadMovil +

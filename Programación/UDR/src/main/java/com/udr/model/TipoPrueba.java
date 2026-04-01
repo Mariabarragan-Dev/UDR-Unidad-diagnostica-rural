@@ -59,7 +59,7 @@ public class TipoPrueba {
 
     @Override
     public String toString(){
-        return "ID: " +idTipoPrueba + "Categoria: " + categoria +  "Duracion: " + duracion +
-                "Preparacion: " + preparacion +  "Zona: " +zona;
+        return "ID: " + idTipoPrueba + "Categoria: " + categoria +  "Duracion: " + duracion +
+                "Preparacion: " + preparacion +  "Zona: " + zona;
     }
 }

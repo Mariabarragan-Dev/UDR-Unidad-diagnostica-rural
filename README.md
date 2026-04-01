@@ -38,6 +38,146 @@ Las tablas principales son:
 3. Navega por las páginas desde el menú de navegación
 No requiere instalación ni servidor.
 
+## Aplicación Java (Módulo de Programación)
+### ¿Qué hace?
+Aplicación de consola en Java que gestiona los datos internos de UDR mediante conexión directa a la base de datos MySQL. Permite realizar operaciones CRUD sobre todas las entidades del sistema.
+### Requisitos previos
+- Java 17 o superior
+- IntelliJ IDEA (u otro IDE Java)
+- XAMPP con MySQL activo
+- MySQL Workbench (opcional, para visualizar los datos)
+### Cómo ejecutarla
+1. Clona el repositorio
+2. Abre XAMPP y arranca el servicio **MySQL**
+3. En MySQL Workbench (o phpMyAdmin), ejecuta en orden:
+   - `bases_de_datos/sql/crearTablas.sql`
+   - `bases_de_datos/sql/datos.sql`
+4. Abre la carpeta `programacion/` como proyecto en IntelliJ
+5. Ejecuta la clase `Main.java`
+### Funcionalidades
+- **Gestión de citas**
+  - Ver todas las citas
+  - Ver citas pendientes
+  - Crear cita de resonancia (con validación de paciente y unidad disponible)
+  - Cancelar cita
+- **Gestión de municipios**
+  - Ver todos los municipios
+- **Gestión de rutas**
+  - Ver todas las rutas
+  - Ver rutas programadas para hoy
+- **Gestión de unidades móviles**
+  - Ver todas las unidades móviles
+  - Ver unidades móviles activas
+- **Gestión de especialistas**
+  - Ver todos los especialistas
+  - Buscar especialistas por especialidad
+- **Tipos de prueba**
+  - Ver todos los tipos de prueba
+  - Buscar prueba por categoría
+- **Gestión de informes**
+  - Ver todos los informes
+  - Registrar nuevo informe
+- **Gestión de pacientes**
+  - Ver todos los pacientes
+  - Buscar paciente por DNI
+  - Registrar nuevo paciente
+  - Actualizar teléfono
+  - Eliminar paciente
+### Entidades gestionadas
+Paciente, Especialista, UnidadMovil, Municipio, Citas, TipoPrueba, Informe, Ruta
+### Conexión con la base de datos
+Toda la comunicación con MySQL se realiza mediante JDBC a través de la clase `Conexion.java` (paquete `db`). Cada entidad tiene su propio DAO que ejecuta las consultas SQL.
+---
+## Arquitectura del proyecto Java (MPO)
+El proyecto sigue una arquitectura en capas:
+model/ → Clases Java que representan las entidades (POO, encapsulación)
+db/ → Conexión JDBC a MySQL (patrón Singleton)
+dao/ → Acceso a datos, consultas SQL (CRUD)
+controller/ → Lógica de interacción con el usuario
+Main.java → Menú principal, punto de entrada
+
+### Mejora MPO
+1. **Rutas de hoy** — filtra en tiempo real las rutas programadas para la fecha actual
+2. **Creación de cita con validación** — antes de crear una cita, el sistema verifica 
+   que existe el paciente y que hay unidades móviles activas. Si alguna condición 
+   no se cumple, la operación se cancela con un mensaje claro.
+
+```mermaid
+classDiagram
+    Paciente "1" --> "*" Citas
+    Especialista "1" --> "*" Citas
+    UnidadMovil "1" --> "*" Citas
+    TipoPrueba "1" --> "*" Citas
+    Municipio "1" --> "*" Citas
+    Municipio "1" --> "*" Paciente
+    Citas "1" --> "0..1" Informe
+    Especialista "1" --> "*" Informe
+    Paciente "1" --> "*" Informe
+    UnidadMovil "1" --> "*" Ruta
+    Municipio "1" --> "*" Ruta
+    class Paciente {
+        +int id_pacientes
+        +String nombre
+        +String apellidos
+        +String DNI
+        +String fecha_nacimiento
+        +String telefono
+        +int id_municipio
+    }
+    class Especialista {
+        +int id_especialista
+        +String nombre
+        +String apellidos
+        +String telefono
+        +String provincia
+        +String especialidad
+        +String hospital
+    }
+    class Citas {
+        +int id_citas
+        +String fecha
+        +String hora
+        +String estado
+        +int id_pacientes
+        +int id_especialista
+        +int id_unidadMovil
+        +int id_tipoPrueba
+        +int id_municipio
+    }
+    class UnidadMovil {
+        +int id_unidadMovil
+        +String modelo
+        +String matricula
+        +String estado
+    }
+    class Informe {
+        +int id_informe
+        +String fecha
+        +String resultado
+        +int id_cita
+        +int id_especialista
+        +int id_paciente
+    }
+    class TipoPrueba {
+        +int id_tipoPrueba
+        +String zona
+        +String categoria
+        +String preparacion
+        +int duracion
+    }
+    class Municipio {
+        +int id_municipio
+        +String nombre
+        +String provincia
+        +String C_autonoma
+    }
+    class Ruta {
+        +String fecha
+        +int id_unidadMovil
+        +int id_municipio
+    }
+```
+
 ## Estructura del repositorio
 
 ```text
@@ -61,7 +201,42 @@ UDR-Diagnostica-Rural/
 │   ├── style.css
 │   ├── Imágenes/
 │   └── Videos/
-├── programacion/
+├── programacion/   ← cubre Programación y MPO (mismo proyecto Java)
+│   └── UDR/
+│       └── src/
+│           └── main/
+│               └── java/
+│                   └── com/udr/
+│                       ├── model/
+│                       │   ├── Citas.java
+│                       │   ├── Especialista.java
+│                       │   ├── Informe.java
+│                       │   ├── Municipio.java
+│                       │   ├── Paciente.java
+│                       │   ├── Ruta.java
+│                       │   ├── TipoPrueba.java
+│                       │   └── UnidadMovil.java
+│                       ├── db/
+│                       │   └── Conexion.java
+│                       ├── dao/
+│                       │   ├── CitasDAO.java
+│                       │   ├── EspecialistaDAO.java
+│                       │   ├── InformeDAO.java
+│                       │   ├── MunicipioDAO.java
+│                       │   ├── PacienteDAO.java
+│                       │   ├── RutaDAO.java
+│                       │   ├── TipoPruebaDAO.java
+│                       │   └── UnidadMovilDAO.java
+│                       ├── controller/
+│                       │   ├── CitasController.java
+│                       │   ├── EspecialistaController.java
+│                       │   ├── InformeController.java
+│                       │   ├── MunicipioController.java
+│                       │   ├── PacienteController.java
+│                       │   ├── RutaController.java
+│                       │   ├── TipoPruebaController.java
+│                       │   └── UnidadMovilController.java
+│                       └── Main.java
 ├── sistemas/
 └── README.md
 ```

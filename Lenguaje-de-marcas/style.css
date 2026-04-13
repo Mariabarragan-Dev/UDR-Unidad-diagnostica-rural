@@ -9,12 +9,10 @@ body {
     overflow-x: hidden;
     min-height: 100vh;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
 }
 
 :root {
-    --background-color: white;
-    --background-color2: #e8f2fb;
     --blanco: #ffffff;
     --azul-principal: #005fa3;
     --azul-oscuro: #003f6e;
@@ -24,12 +22,12 @@ body {
     --font-family: Bree Serif;
     --font-family1: Roboto;
 }
+
 main {
     flex: 1;
 }
 
-/* Header */
-/*Inicio*/
+/* ── Header ── */
 header {
     position: sticky;
     top: 0;
@@ -41,7 +39,6 @@ header::after {
     display: block;
     height: 50px;
     background: linear-gradient(to right, var(--azul-claro), var(--azul-principal), var(--azul-oscuro));
-
 }
 
 .header-top {
@@ -90,9 +87,7 @@ header::after {
     font-family: var(--font-family);
 }
 
-/*end header*/
-
-/* Nav*/
+/* ── Nav ── */
 nav ul {
     list-style: none;
     display: flex;
@@ -105,15 +100,13 @@ nav ul li a {
     text-decoration: none;
     color: var(--gris-texto);
     font-size: 1rem;
-    font-family: Bree Serif;
+    font-family: var(--font-family);
 }
 
 nav ul li a:hover {
     color: var(--azul-principal);
-
 }
 
-/*end nav */
 /*Hero*/
 .hero {
     width: 100%;
@@ -143,7 +136,7 @@ nav ul li a:hover {
 
 .hero-descripcion h2 {
     position: absolute;
-    top: 60%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -151,12 +144,12 @@ nav ul li a:hover {
     z-index: 2;
     font-size: 2rem;
     font-family: var(--font-family);
-
+    white-space: nowrap;
 }
 
 .hero-descripcion p {
     position: absolute;
-    top: 70%;
+    top: 67%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -165,10 +158,18 @@ nav ul li a:hover {
     font-size: 1.5rem;
     font-family: var(--font-family1);
     font-style: italic;
-
+    white-space: nowrap;
 }
 
-/* Ventajas */
+.hero-cta {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+/*Main*/
 .ventajas {
     display: flex;
     justify-content: space-around;
@@ -181,74 +182,97 @@ nav ul li a:hover {
 .ventaja {
     text-align: center;
     flex: 1;
-    position: relative;
     padding: 1rem;
 }
 
-.ventaja::before {
-    content: '◆';
-    display: block;
-    color: var(--azul-principal);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+.ventaja h3 {
+    font-family: var(--font-family);
+    color: var(--azul-oscuro);
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
 }
 
 .ventaja p {
-    font-family: var(--font-family);
+    font-family: var(--font-family1);
     color: var(--azul-oscuro);
     font-size: 1rem;
 }
 
-/*primera sección*/
-.problema {
-    margin-top: 10%;
 
-}
-
-.secciones h3 {
-    text-align: center;
-    font-family: var(--font-family);
-    color: var(--azul-principal);
-    font-size: 2rem;
-}
-
-.dato {
-    font-family: var(--font-family1);
-    color: var(--gris-texto);
-    margin-top: 30px;
-
-}
-
-.secciones {
-
+.problema-sanitario {
+    position: relative;
+    min-height: 420px;
     display: flex;
     align-items: center;
-    gap: 3rem;
+    overflow: hidden;
+    margin-top: 5%;
+}
+
+.problema-sanitario-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('Imágenes/Paisaje-rural.webp');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.35);
+    z-index: 0;
+}
+
+.problema-sanitario-contenido {
+    position: relative;
+    z-index: 1;
+    max-width: 750px;
+    margin: 0 auto;
     padding: 4rem 2rem;
-
+    text-align: center;
 }
 
-.secciones-imagen img {
-    width: 100%;
-    border-radius: 12px;
-    max-height: 400px;
-    object-fit: cover;
+.problema-sanitario-contenido h2 {
+    font-family: var(--font-family);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: white;
 }
 
-.secciones-imagen {
-    flex: 1;
+.problema-sanitario-contenido p {
+    font-family: var(--font-family1);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.88);
 }
 
-.seccion-texto {
-    flex: 1;
+.cifras-problema {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
 }
 
-/*Segunda sección*/
+.cifra-destacada {
+    text-align: center;
+}
+
+.cifra-destacada span {
+    display: block;
+    font-family: var(--font-family);
+    font-size: 2.4rem;
+    color: white;
+    font-weight: bold;
+}
+
+.cifra-destacada p {
+    font-family: var(--font-family1);
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0.3rem 0 0;
+}
+
 
 .funcionamiento {
-    margin-top: 10%;
-
-
+    margin-top: 5%;
+    padding: 2rem 4rem;
 }
 
 .funcionamiento h3 {
@@ -258,42 +282,297 @@ nav ul li a:hover {
     font-size: 2rem;
 }
 
-.funciones {
+.funcionamiento-pasos {
+    display: flex;
+    gap: 0;
+    margin-top: 3rem;
+    position: relative;
+}
 
+.funcionamiento-pasos::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc(100% / 10);
+    right: calc(100% / 10);
+    height: 2px;
+    background-color: var(--azul-principal);
+    z-index: 0;
+}
+
+.paso-horizontal {
+    flex: 1;
+    text-align: center;
+    padding: 0 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.paso-numero {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--azul-principal);
+    color: white;
+    font-family: var(--font-family);
+    font-size: 1.3rem;
     display: flex;
     align-items: center;
-    gap: 3rem;
-    padding: 4rem 2rem;
-
+    justify-content: center;
+    margin: 0 auto 1rem;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--azul-principal);
 }
 
-.funciones-texto {
-    flex: 1;
+.paso-horizontal h4 {
+    font-family: var(--font-family);
+    color: var(--azul-oscuro);
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
 }
 
-.funciones-imagen img {
-    width: 100%;
-    border-radius: 12px;
-    max-height: 400px;
-    object-fit: cover;
-}
-
-.funciones-imagen {
-    flex: 1;
-}
-
-.funcion {
+.paso-horizontal p {
     font-family: var(--font-family1);
     color: var(--gris-texto);
-    margin-top: 30px;
+    font-size: 0.88rem;
+    line-height: 1.5;
 }
 
-/* Tercera sección */
+.funcionamiento-enlace {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+
+.testimonios {
+    margin-top: 5%;
+    padding: 3rem 4rem;
+    background-color: var(--azul-claro);
+}
+
+.testimonios h2 {
+    font-family: var(--font-family);
+    font-size: 2rem;
+    color: var(--azul-principal);
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.testimonios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.testimonio-card {
+    background-color: var(--blanco);
+    border-radius: 12px;
+    padding: 2rem;
+    border-top: 4px solid var(--azul-principal);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.testimonio-card:hover {
+    box-shadow: 0 6px 24px rgba(0, 95, 163, 0.14);
+    transform: translateY(-4px);
+}
+
+.testimonio-card blockquote {
+    font-family: var(--font-family1);
+    color: var(--gris-texto);
+    font-style: italic;
+    line-height: 1.75;
+    margin: 0 0 1.5rem;
+    font-size: 0.95rem;
+    border: none;
+    padding: 0;
+}
+
+.testimonio-autor {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.autor-reseña {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--azul-oscuro);
+    color: white;
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.autor-info strong {
+    display: block;
+    font-family: var(--font-family);
+    color: var(--azul-oscuro);
+    font-size: 0.9rem;
+}
+
+.autor-info span {
+    font-family: var(--font-family1);
+    color: #777;
+    font-size: 0.8rem;
+}
+
+.faq {
+    margin-top: 5%;
+    padding: 3rem 4rem;
+}
+
+.faq h2 {
+    font-family: var(--font-family);
+    font-size: 2rem;
+    color: var(--azul-principal);
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: var(--gris-claro);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--azul-principal);
+    transition: background-color 0.25s;
+    border-radius: 10px;
+}
+
+.faq-item:hover {
+    background-color: var(--azul-claro);
+}
+
+.faq-item[open] {
+    background-color: var(--azul-claro);
+}
+
+.faq-item>summary {
+    font-family: var(--font-family);
+    color: var(--azul-oscuro);
+    font-size: 1rem;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+    background-color: transparent;
+}
+
+.faq-item>summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item>summary::after {
+    content: '+';
+    font-size: 1.4rem;
+    color: var(--azul-principal);
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.faq-item[open]>summary::after {
+    content: '−';
+}
+
+.faq-item>p {
+    font-family: var(--font-family1);
+    color: var(--gris-texto);
+    font-size: 0.92rem;
+    line-height: 1.65;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+
+.dos-publicos {
+    margin-top: 5%;
+    padding: 3rem 4rem;
+    background-color: var(--azul-oscuro);
+}
+
+.dos-publicos h2 {
+    font-family: var(--font-family);
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.publicos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.publico-card {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.publico-card:hover {
+    background-color: rgba(255, 255, 255, 0.11);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.publico-card h3 {
+    font-family: var(--font-family);
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.publico-card p {
+    font-family: var(--font-family1);
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+    margin-bottom: 1.8rem;
+    font-size: 0.95rem;
+}
+
+.boton-blanco {
+    display: inline-block;
+    background-color: white;
+    color: var(--azul-oscuro);
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.boton-blanco:hover {
+    background-color: var(--azul-claro);
+}
+
 .contacta {
-    margin-top: 10%;
+    margin-top: 5%;
     text-align: center;
     background-color: var(--azul-claro);
-    padding: 1rem 2rem 3rem 1rem;
+    padding: 3rem 2rem;
 }
 
 .contacta h3 {
@@ -304,10 +583,9 @@ nav ul li a:hover {
 }
 
 .contacta p {
-
-    margin-top: 50px;
+    margin-top: 1rem;
     color: var(--gris-texto);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 2rem;
 }
 
@@ -329,7 +607,7 @@ nav ul li a:hover {
     box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Footer */
+/*Footer*/
 footer {
     background-color: var(--gris-claro);
     padding: 1.5rem 2rem;
@@ -403,8 +681,7 @@ footer {
     color: var(--gris-texto);
 }
 
-/* Fin footer*/
-/*Servicios tipos*/
+/*Servicios*/
 .exploraciones {
     margin-top: 5%;
     padding: 2rem 4rem;
@@ -451,7 +728,6 @@ footer {
 }
 
 .tipos ul {
-
     list-style: disc;
     padding-left: 1.5rem;
 }
@@ -463,7 +739,7 @@ footer {
     line-height: 1.5;
 }
 
-/* servicios proceso*/
+
 .proceso-asistencial {
     margin-top: 5%;
     padding: 2rem 4rem;
@@ -530,7 +806,7 @@ footer {
     line-height: 1.6;
 }
 
-/* servicios tecnologia*/
+
 .tecnologia {
     margin-top: 5%;
     padding: 2rem 4rem;
@@ -550,40 +826,7 @@ footer {
     align-items: stretch;
 }
 
-.equipo {
-    flex: 1;
-    background-color: var(--azul-claro);
-    border-radius: 12px;
-    border-left: 4px solid var(--azul-principal);
-    padding: 2rem;
-}
-
-.equipo h3 {
-    font-family: var(--font-family);
-    color: var(--azul-principal);
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-}
-
-.equipo p {
-    font-family: var(--font-family1);
-    color: var(--gris-texto);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.equipo ul {
-    list-style: disc;
-    padding-left: 1.5rem;
-}
-
-.equipo li {
-    font-family: var(--font-family1);
-    color: var(--gris-texto);
-    margin-top: 8px;
-    line-height: 1.6;
-}
-
+.equipo,
 .unidad-movil {
     flex: 1;
     background-color: var(--azul-claro);
@@ -592,6 +835,7 @@ footer {
     padding: 2rem;
 }
 
+.equipo h3,
 .unidad-movil h3 {
     font-family: var(--font-family);
     color: var(--azul-principal);
@@ -599,6 +843,7 @@ footer {
     margin-bottom: 1rem;
 }
 
+.equipo p,
 .unidad-movil p {
     font-family: var(--font-family1);
     color: var(--gris-texto);
@@ -606,11 +851,13 @@ footer {
     margin-bottom: 1rem;
 }
 
+.equipo ul,
 .unidad-movil ul {
     list-style: disc;
     padding-left: 1.5rem;
 }
 
+.equipo li,
 .unidad-movil li {
     font-family: var(--font-family1);
     color: var(--gris-texto);
@@ -618,8 +865,7 @@ footer {
     line-height: 1.6;
 }
 
-/* Sobre UDR*/
-/* Nuestra historia*/
+/*Sobre UDR*/
 .historia {
     margin-top: 5%;
     max-width: 900px;
@@ -655,12 +901,12 @@ footer {
 
 .final-udr {
     text-align: center;
-    font-size: 1.0rem;
+    font-size: 1rem;
     color: var(--azul-principal);
     margin-top: 1rem;
 }
 
-/*Problemas resolver*/
+/* ── Sobre UDR: el problema que resolvemos ── */
 .resolver {
     margin-top: 5%;
     padding: 2rem 4rem;
@@ -685,7 +931,6 @@ footer {
     font-family: var(--font-family1);
     color: var(--gris-texto);
     line-height: 1.8;
-
 }
 
 .resolver-texto p {
@@ -703,6 +948,7 @@ footer {
     object-fit: cover;
 }
 
+/* ── Sobre UDR: valores ── */
 .valores {
     margin-top: 5%;
     padding: 2rem 4rem;
@@ -716,7 +962,7 @@ footer {
     text-align: center;
 }
 
-.valores p {
+.valores>p {
     text-align: center;
     font-family: var(--font-family1);
     color: var(--gris-texto);
@@ -727,8 +973,6 @@ footer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     margin-top: 50px;
-
-    color: var(--blanco);
     gap: 2rem;
 }
 
@@ -751,8 +995,8 @@ footer {
     font-family: var(--font-family1);
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
-    margin-bottom: 2rem;
 }
+
 /*Cobertura*/
 .lugares {
     margin-top: 5%;
@@ -782,19 +1026,18 @@ footer {
     align-items: start;
 }
 
-details {
-   background-color: var(--azul-oscuro);
+.cobertura-tarjetas details {
+    background-color: var(--azul-oscuro);
     border-radius: 12px;
     padding: 1.5rem;
 }
 
-summary {
+.cobertura-tarjetas summary {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
     font-family: var(--font-family);
-    color: var(--azul-principal);
     font-size: 1.1rem;
     cursor: pointer;
     list-style: none;
@@ -802,24 +1045,25 @@ summary {
     color: var(--blanco);
 }
 
-summary img {
-     height: 50px;
+.cobertura-tarjetas summary img {
+    height: 50px;
     width: auto;
     border-radius: 3px;
 }
 
-details ul {
+.cobertura-tarjetas details ul {
     list-style: disc;
     padding-left: 1.5rem;
     margin-top: 1rem;
 }
 
-details li {
+.cobertura-tarjetas details li {
     font-family: var(--font-family1);
     color: var(--blanco);
     margin-top: 6px;
     line-height: 1.5;
 }
+
 .cifras-cobertura {
     display: flex;
     justify-content: space-around;
@@ -868,9 +1112,8 @@ details li {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
 }
-/*Cobertura*/
-/* Contacto*/
-/* Formulario*/
+
+/*Contacto*/
 .contacto {
     margin-top: 5%;
 }
@@ -893,8 +1136,7 @@ details li {
 
 form {
     max-width: 600px;
-    margin: 0 auto;
-    margin-bottom: 5%;
+    margin: 0 auto 5%;
 }
 
 fieldset {
@@ -928,7 +1170,6 @@ textarea {
     border-radius: 6px;
     font-family: var(--font-family1);
     color: var(--gris-texto);
-
 }
 
 button {
@@ -951,27 +1192,22 @@ button {
 button:hover {
     background-color: var(--azul-principal);
     box-shadow: 0px 6px 20px rgba(0, 95, 163, 0.3);
-
 }
 
-/*FINAL DE HTML CON CSS*/
-/* Media queries*/
-/* Tablet, portátiles pequeños*/
+/*Media queries*/
 @media (max-width: 1200px) {
     .hero-descripcion h2 {
         font-size: 1.5rem;
-        top: 55%;
+        top: 52%;
     }
 
     .hero-descripcion p {
         font-size: 1.2rem;
-        top: 70%;
+        top: 65%;
     }
 
-    .secciones-imagen,
-    .funciones-imagen {
-        flex: 0 0 40%;
-        min-width: 40%;
+    .testimonios-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .footer-nav {
@@ -987,7 +1223,6 @@ button:hover {
     }
 }
 
-/*Móviles medianos*/
 @media (max-width: 768px) {
     .header-medio {
         padding: 0.5rem 1rem;
@@ -1003,12 +1238,12 @@ button:hover {
 
     .hero-descripcion h2 {
         font-size: 1.3rem;
-        top: 50%;
+        top: 48%;
     }
 
     .hero-descripcion p {
         font-size: 1rem;
-        top: 65%;
+        top: 62%;
     }
 
     .brand-text h1 {
@@ -1019,13 +1254,48 @@ button:hover {
         font-size: 0.75rem;
     }
 
-    .secciones,
-    .funciones {
+    .testimonios,
+    .faq,
+    .dos-publicos {
+        padding: 2rem 1.5rem;
+    }
+
+    .testimonios-grid,
+    .faq-grid,
+    .publicos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .funcionamiento-pasos {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .funcionamiento-pasos::before {
+        display: none;
+    }
+
+    .paso-horizontal {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+        gap: 1rem;
+    }
+
+    .paso-numero {
+        flex-shrink: 0;
+        margin: 0;
+    }
+
+    .cifras-problema {
+        gap: 1.5rem;
+    }
+
+    .resolver-contenido {
         flex-direction: column;
     }
 
-    .secciones-imagen,
-    .funciones-imagen {
+    .img-resolver {
         width: 100%;
     }
 
@@ -1049,16 +1319,17 @@ button:hover {
 
     .valores {
         padding: 1rem;
-
     }
 
     .misiones {
         grid-template-columns: 1fr;
     }
 
+    .tecnologia-contenido {
+        flex-direction: column;
+    }
 }
 
-/*Móviles pequeños*/
 @media (max-width: 480px) {
     .header-medio {
         flex-direction: column;
@@ -1068,11 +1339,6 @@ button:hover {
 
     nav ul {
         gap: 1rem;
-
-    }
-
-    .nav ul li a {
-        font-size: 0.85rem;
     }
 
     .ventajas {
@@ -1090,29 +1356,38 @@ button:hover {
         border-bottom: none;
     }
 
+    .problema-sanitario-contenido h2 {
+        font-size: 1.5rem;
+    }
+
+    .cifra-destacada span {
+        font-size: 2rem;
+    }
+
+    .hero-cta {
+        top: 88%;
+        width: 90%;
+        text-align: center;
+    }
+
+    .testimonio-card,
+    .publico-card {
+        height: auto;
+    }
+
     .tipos-todos {
         grid-template-columns: 1fr;
     }
 
-    .tecnologia-contenido {
-        flex-direction: column;
-    }
-
-    .resolver-contenido {
-        flex-direction: column;
-    }
-
-    .img-resolver {
-        width: 100%;
-    }
     .cobertura-tarjetas {
         grid-template-columns: 1fr;
     }
-    summary {
+
+    .cobertura-tarjetas summary {
         font-size: 0.95rem;
     }
-    
-    summary img {
+
+    .cobertura-tarjetas summary img {
         height: 40px;
     }
 
@@ -1121,5 +1396,4 @@ button:hover {
         margin-left: 1rem;
         margin-right: 1rem;
     }
-
 }

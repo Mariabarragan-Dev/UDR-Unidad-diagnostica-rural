@@ -10,7 +10,7 @@ Más de 8.000 municipios españoles, la mayoría con menos de 5.000 habitantes, 
 - HTML5
 - CSS3 (Flexbox, Grid, variables CSS, media queries)
 - Google Fonts (Bree Serif, Roboto)
-- Java (próximamente)
+- Java 
 - MySQL 
 
 ## Módulos del proyecto
@@ -178,6 +178,11 @@ classDiagram
     }
 ```
 
+## Informe Técnico — Sistemas Informáticos
+Documentación del entorno de ejecución de la aplicación Java: hardware, 
+sistema operativo, instalación, usuarios, mantenimiento y evidencias.
+📄 [Ver informe técnico](docs/sistemas/informe.pdf)
+
 ## Estructura del repositorio
 
 ```text
@@ -238,6 +243,8 @@ UDR-Diagnostica-Rural/
 │                       │   └── UnidadMovilController.java
 │                       └── Main.java
 ├── sistemas/
+│           ├── informe_sistemas.pdf
+│           └── capturas/
 └── README.md
 ```
 

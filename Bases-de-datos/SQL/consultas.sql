@@ -4,7 +4,9 @@ SELECT * FROM unidadmovil WHERE estado = 'activa';
 
 -- Cuántas pruebas musculoesqueléticas duran menos de 30 minutos --
 
-SELECT COUNT(*) FROM tipoprueba WHERE categoria = 'musculoesquelético' AND CAST(REPLACE(duracion, ' min', '') AS UNSIGNED)  <30;
+SELECT COUNT(*) 
+FROM tipoprueba 
+WHERE categoria = 'musculoesquelético' AND CAST(REPLACE(duracion, ' min', '') AS UNSIGNED)  <30;
 
 -- Qué especialistas hay en la provincia de Asturias --
 
@@ -76,3 +78,70 @@ WHERE DNI = '23456789B';
 
 SELECT * FROM citas
 WHERE fecha BETWEEN '2026-04-01' AND '2026-04-03';
+
+-- Todos los municipios aunque no tengan ruta asignada --
+
+SELECT m.nombre, r.fecha
+FROM ruta r
+RIGHT JOIN municipio m 
+ON r.id_municipio = m.id_municipio;
+
+-- Todos los especialistas aunque no hayan redactado ningún informe --
+
+SELECT e.nombre, e.especialidad, i.id_informe
+FROM informe i
+RIGHT JOIN especialista e 
+ON i.id_especialista = e.id_especialista;
+
+-- Municipios con ruta hoy o con citas pendientes --
+
+SELECT m.nombre 
+FROM municipio m
+JOIN ruta r 
+ON m.id_municipio = r.id_municipio
+WHERE r.fecha = CURDATE()
+
+UNION
+
+SELECT m.nombre 
+FROM municipio m
+JOIN citas c 
+ON m.id_municipio = c.id_municipio
+WHERE c.estado = 'pendiente';
+
+-- Actualizar el estado de una unidad móvil y registrar una ruta nueva --
+
+START TRANSACTION;
+
+UPDATE unidadmovil
+SET estado = 'inactiva'
+WHERE id_unidadmovil = 2;
+
+INSERT INTO ruta (id_municipio, id_unidadmovil, fecha)
+VALUES (5, 2, '2026-04-25');
+
+COMMIT;
+
+-- Especialista que ha redactado más informes --
+
+SELECT e.nombre, 
+COUNT(i.id_informe) AS total_informes
+FROM especialista e
+JOIN informe i 
+ON e.id_especialista = i.id_especialista
+GROUP BY e.id_especialista
+ORDER BY total_informes DESC
+LIMIT 1;
+
+-- Pacientes con más de una cita registrada --
+
+SELECT id_pacientes, COUNT(*) AS total_citas
+FROM citas
+GROUP BY id_pacientes
+HAVING COUNT(*) > 1;
+
+-- pacientes y especialistas en un listado general --
+
+SELECT nombre, apellidos, 'Paciente' AS tipo FROM pacientes
+UNION
+SELECT nombre, apellidos, 'Especialista' AS tipo FROM especialista;

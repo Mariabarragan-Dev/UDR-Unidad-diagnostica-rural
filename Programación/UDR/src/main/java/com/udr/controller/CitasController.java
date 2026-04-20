@@ -29,7 +29,14 @@ public class CitasController {
             System.out.println("0. Volver");
             System.out.print("Opcion: ");
 
-            opcion = Integer.parseInt(teclado.nextLine());
+            try {
+                opcion = Integer.parseInt(teclado.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Por favor, introduce un número.");
+                opcion = -1;
+            }
+
+
 
             switch (opcion) {
                 case 1 -> verTodas();

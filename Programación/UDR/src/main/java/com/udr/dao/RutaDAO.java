@@ -37,11 +37,10 @@ public class RutaDAO {
     public List<Ruta> listarRutasHoy() {
         List<Ruta> lista = new ArrayList<>();
         String sql = "SELECT r.id_municipio, r.id_unidadMovil, r.fecha, m.nombre FROM ruta r " +
-                "JOIN municipio m ON m.id_municipio = r.id_municipio WHERE r.fecha = ?";
+                "JOIN municipio m ON m.id_municipio = r.id_municipio WHERE r.fecha = CURDATE()";
 
-        try (PreparedStatement consulta = con.prepareStatement(sql)) {
-            consulta.setString(1, "2026-03-26");
-            ResultSet resultado = consulta.executeQuery();
+        try (Statement consulta = con.createStatement();
+             ResultSet resultado = consulta.executeQuery(sql)) {
 
             while (resultado.next()) {
                 Ruta r = new Ruta(
@@ -54,10 +53,9 @@ public class RutaDAO {
 
         } catch (SQLException e) {
             System.out.println("Error al obtener rutas de hoy: " + e.getMessage());
-
         }
         return lista;
-        }
+    }
     }
 
 

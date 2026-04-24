@@ -181,7 +181,7 @@ classDiagram
 ## Informe Técnico — Sistemas Informáticos
 Documentación del entorno de ejecución de la aplicación Java: hardware, 
 sistema operativo, instalación, usuarios, mantenimiento y evidencias.
-📄 [Ver informe técnico](docs/sistemas/informe.pdf)
+[Ver informe técnico](docs/sistemas/informe.pdf)
 
 ## Estructura del repositorio
 
@@ -244,7 +244,7 @@ UDR-Diagnostica-Rural/
 │                       └── Main.java
 ├── sistemas/
 │           ├── informe_sistemas.pdf
-│           └── capturas/
+│           
 └── README.md
 ```
 

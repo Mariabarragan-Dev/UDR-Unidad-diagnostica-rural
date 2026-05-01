@@ -87,7 +87,7 @@ Aplicación de consola en Java que gestiona los datos internos de UDR mediante c
 Paciente, Especialista, UnidadMovil, Municipio, Citas, TipoPrueba, Informe, Ruta
 ### Conexión con la base de datos
 Toda la comunicación con MySQL se realiza mediante JDBC a través de la clase `Conexion.java` (paquete `db`). Cada entidad tiene su propio DAO que ejecuta las consultas SQL.
----
+
 ## Arquitectura del proyecto Java (MPO)
 El proyecto sigue una arquitectura en capas:
 model/ → Clases Java que representan las entidades (POO, encapsulación)
